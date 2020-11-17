@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         PMK_STYLE_FIXER
+// @name         PMK_Style_Fixer
 // @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  Style_fixer
+// @version      0.2
+// @description  Фиксит ссылки на стили
 // @author       1323ED5
 // @match        https://el.pmkedu.pro/*
 // @grant        none
@@ -11,11 +11,9 @@
 (function() {
     'use strict';
     let links = document.head.querySelectorAll("link");
-    let re = /https?/;
-    console.log(links);
+
     for(let i = 0; i < links.length; i++){
-        links[i].href = links[i].href.replace(re, "https");
-        console.log(links[i]);
+        links[i].href = links[i].href.replace(/https?/, "https");
     }
-    console.log("done");
+    console.log("PMK_Style_Fixer: Done");
 })();
